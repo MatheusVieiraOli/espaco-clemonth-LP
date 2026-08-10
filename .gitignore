@@ -1,0 +1,48 @@
+# ─────────────────────────────────────────────────────────────
+#  Material bruto de trabalho — NÃO vai para o GitHub
+# ─────────────────────────────────────────────────────────────
+# assets/ guarda os originais baixados do site do cliente: 911 MB,
+# sendo três vídeos de 182, 398 e 218 MB. O GitHub recusa qualquer
+# arquivo acima de 100 MB, então o push falharia.
+#
+# Nada aqui é necessário para o site funcionar: as versões tratadas
+# e otimizadas estão em site/media/ e essas sim são versionadas.
+#
+# IMPORTANTE: guarde a pasta assets/ em outro lugar (HD externo, Drive).
+# Ela é a única cópia dos originais em resolução de câmera.
+assets/
+
+# ─────────────────────────────────────────────────────────────
+#  Sistema operacional
+# ─────────────────────────────────────────────────────────────
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+._*
+
+# ─────────────────────────────────────────────────────────────
+#  Editores
+# ─────────────────────────────────────────────────────────────
+.vscode/*
+!.vscode/settings.json
+.idea/
+*.swp
+*~
+
+# ─────────────────────────────────────────────────────────────
+#  Dependências e build (caso o projeto cresça)
+# ─────────────────────────────────────────────────────────────
+node_modules/
+dist/
+.cache/
+*.log
+npm-debug.log*
+
+# ─────────────────────────────────────────────────────────────
+#  Segredos — nunca versionar
+# ─────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example

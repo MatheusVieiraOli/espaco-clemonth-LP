@@ -1,0 +1,22 @@
+# Normaliza a quebra de linha: LF no repositório, nativo no disco.
+# Sem isso o Git avisa a cada arquivo em máquina Windows.
+* text=auto
+
+*.html   text eol=lf
+*.css    text eol=lf
+*.js     text eol=lf
+*.json   text eol=lf
+*.md     text eol=lf
+
+# Mídia é binária — o Git não deve tentar converter nem comparar linha a linha.
+*.jpg    binary
+*.jpeg   binary
+*.png    binary
+*.webp   binary
+*.gif    binary
+*.svg    binary
+*.mp4    binary
+*.webm   binary
+*.ico    binary
+*.woff   binary
+*.woff2  binary
