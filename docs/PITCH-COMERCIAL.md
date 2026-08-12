@@ -32,9 +32,24 @@ Três agravantes, todos verificáveis:
 - Os arquivos **não têm `faststart`**: o índice (`moov`) está no fim do arquivo, depois do
   `mdat`. É o pior cenário possível para reprodução na web.
 
-**O que fiz:** recomprimi para 720 px de largura com `faststart`, `preload="none"` e capa
-extraída do próprio vídeo. **798 MB → 35 MB**, com o áudio e o conteúdo intactos. Os
-depoimentos continuam sendo os mesmos três casais, agora visíveis no celular.
+**O que fiz:** os dois primeiros agravantes estão resolvidos na página nova. As tags usam
+`preload="none"` e capa extraída do próprio vídeo, então nada é baixado até alguém apertar
+play, e a seção mostra os rostos dos casais em vez de retângulos pretos.
+
+**Atenção antes da reunião.** Por decisão de projeto, os arquivos de vídeo da página nova
+apontam para o servidor do próprio Clemonth — são os mesmos MP4 de 182, 218 e 398 MB, sem
+`faststart`. Ou seja: **o terceiro agravante ainda vale para a demonstração.** Se o cliente
+apertar play e demorar, ou se ele abrir o inspecionar durante a conversa, o argumento deste
+item fica frágil.
+
+Duas formas de contornar:
+
+1. **Não abra play na reunião.** Use os depoimentos como prova de que existem, e mostre-os
+   pelo Instagram, onde já estão comprimidos.
+2. **Volte para os arquivos locais.** As cópias recomprimidas (720 px, `faststart`, áudio
+   intacto, **798 MB → 35 MB**) continuam em `media/video/*.mp4` na máquina, fora do Git.
+   Basta apontar as três tags `<video>` de volta e tirar `media/video/*.mp4` do `.gitignore`.
+   Aí o item fica inteiramente resolvido e vira demonstração ao vivo do ganho.
 
 ## 2. Fotos de até 25 MB
 

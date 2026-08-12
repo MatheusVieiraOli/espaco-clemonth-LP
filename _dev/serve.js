@@ -1,10 +1,11 @@
-// Servidor estático simples para pré-visualizar a pasta /site durante o desenvolvimento.
+// Servidor estático para pré-visualizar o site durante o desenvolvimento.
+// Serve a raiz do repositório, que é de onde a Vercel também serve.
 // Uso: node _dev/serve.js   →  http://localhost:4321
 const http = require('http');
 const fs   = require('fs');
 const path = require('path');
 
-const ROOT = path.join(__dirname, '..', 'site');
+const ROOT = path.join(__dirname, '..');
 const PORT = 4321;
 const TYPES = {
   '.html': 'text/html; charset=utf-8',

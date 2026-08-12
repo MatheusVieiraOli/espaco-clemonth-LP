@@ -9,8 +9,8 @@ material do Instagram). Nada aqui foi inventado: cada valor tem origem rastreáv
 
 | Arquivo | Origem | Uso |
 |---|---|---|
-| `site/media/img/logo-nova.png` | `wp-content/uploads/2021/11/LOGO-NOVA.png` | Versão **branca**, para fundos escuros. Usada no cabeçalho e no rodapé. |
-| `site/media/img/cropped-colorido-png-270x270.png` | `wp-content/uploads/2021/10/cropped-colorido-png` | Versão **colorida** (cobre sobre transparente), com o ornamento floral completo. Usada como favicon. |
+| `media/img/logo-nova.png` | `wp-content/uploads/2021/11/LOGO-NOVA.png` | Versão **branca**, para fundos escuros. Usada no cabeçalho e no rodapé. |
+| `media/img/cropped-colorido-png-270x270.png` | `wp-content/uploads/2021/10/cropped-colorido-png` | Versão **colorida** (cobre sobre transparente), com o ornamento floral completo. Usada como favicon. |
 
 **Construção da marca:** moldura ornamental simétrica de inspiração damasco/art nouveau,
 em degradê de cobre, envolvendo a palavra `CLEMONTH` em serifa clássica com entreletra

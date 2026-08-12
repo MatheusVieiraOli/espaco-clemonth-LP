@@ -12,6 +12,20 @@
 # Ela é a única cópia dos originais em resolução de câmera.
 assets/
 
+# Zips baixados do GitHub ou gerados para backup. O do projeto tem 967 MB e
+# faria o push falhar — o limite do GitHub é 100 MB por arquivo.
+*.zip
+*.rar
+*.7z
+
+# Os depoimentos passaram a ser servidos pelas URLs do servidor do cliente
+# (ver a seção #depoimentos do index.html), então os MP4 comprimidos não vão
+# mais para o ar. Ficam no disco como cópia de segurança: se algum dia os
+# arquivos saírem do ar em espacoclemonth.com.br, é só apontar as tags <video>
+# de volta para media/video/*.mp4 e remover estas duas linhas.
+media/video/*.mp4
+!media/video/*.jpg
+
 # ─────────────────────────────────────────────────────────────
 #  Sistema operacional
 # ─────────────────────────────────────────────────────────────

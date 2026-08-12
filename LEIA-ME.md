@@ -1,12 +1,14 @@
 # Espaço Clemonth — landing page de conversão
 
-Página única, sem framework e sem build. Abra `site/index.html` no navegador e ela funciona.
+Página única, sem framework e sem build. Abra `index.html` no navegador e ela funciona.
+
+**No ar em:** https://clemonth.kintechstudio.com.br
 
 ---
 
 ## Como abrir
 
-**Rápido:** clique duas vezes em `site/index.html`.
+**Rápido:** clique duas vezes em `index.html`.
 
 **Com servidor local** (recomendado — o mapa e os vídeos se comportam melhor):
 
@@ -20,17 +22,22 @@ Depois abra `http://localhost:4321`.
 
 ## O que tem em cada pasta
 
+O site fica na **raiz** do repositório. É o que faz a Vercel publicar sem nenhuma
+configuração no painel: ela procura `index.html` na raiz e acha.
+
 ```
-Espaço Clemonth/
-├── site/                    ← ISTO É A ENTREGA. Sobe inteiro pro servidor.
-│   ├── index.html
-│   ├── css/style.css
-│   ├── js/main.js
-│   └── media/
-│       ├── img/             52 fotos em JPG + WebP (máx. 1800 px) — 22 MB
-│       └── video/           3 depoimentos comprimidos + capas — 35 MB
+espaco-clemonth-LP/
+├── index.html               ← A PÁGINA
+├── css/style.css
+├── js/main.js
+├── media/
+│   ├── img/                 52 fotos em JPG + WebP (máx. 1800 px) — 22 MB
+│   └── video/               só as capas dos depoimentos (os MP4 vêm do
+│                            servidor do cliente; ver .gitignore)
+├── vercel.json              cache e cabeçalhos de segurança
+├── .vercelignore            o que fica no repo mas NÃO vai para o ar
 │
-├── assets/                  Originais baixados do site, sem tratamento
+├── assets/                  Originais sem tratamento (fora do Git, ver .gitignore)
 │   ├── img/                 52 fotos em resolução de câmera — 113 MB
 │   └── video/               3 vídeos originais — 798 MB
 │
@@ -46,20 +53,26 @@ Espaço Clemonth/
     └── CONTRASTE.md         legibilidade: o que foi medido e por quê
 ```
 
-Para publicar, só a pasta `site/` importa. As outras são material de trabalho.
+`docs/`, `_dev/`, `_extracao/` e o `LEIA-ME.md` ficam versionados mas **não são publicados** —
+estão no `.vercelignore`. Sem isso, o `docs/PITCH-COMERCIAL.md` ficaria acessível por URL
+direta no ar, e ele contém o diagnóstico do site atual do cliente.
 
 ---
 
 ## Como publicar
 
-É um site estático. Funciona em qualquer lugar:
+Já está publicado. O repositório está conectado à Vercel: **todo push na `main` gera um
+deploy novo automaticamente.**
 
-- **Netlify / Vercel / Cloudflare Pages** — arraste a pasta `site/` na tela. Sai no ar em minutos, de graça.
-- **Hospedagem própria** — envie o conteúdo de `site/` para a raiz (ou para uma subpasta, os caminhos são todos relativos).
-- **Junto do WordPress atual** — dá para publicar em `espacoclemonth.com.br/visita/` sem mexer no site existente, o que é útil para rodar tráfego pago sem risco.
+- **Produção:** https://clemonth.kintechstudio.com.br
+- **Repositório:** https://github.com/MatheusVieiraOli/espaco-clemonth-LP
 
-Antes de publicar, troque o `<link rel="canonical">` e a `og:url` no `<head>` do `index.html`
-pelo endereço definitivo.
+Se um dia migrar para o domínio do cliente, troque os cinco endereços no `<head>` do
+`index.html`: `canonical`, `og:url`, `og:image` e o `url` e `image` do bloco JSON-LD.
+
+Em outra hospedagem, é um site estático comum: envie o conteúdo da raiz (menos as pastas do
+`.vercelignore`) para a pasta pública do servidor. Todos os caminhos são relativos, então
+funciona também em subpasta.
 
 ---
 
@@ -67,10 +80,10 @@ pelo endereço definitivo.
 
 | O que | Onde |
 |---|---|
-| Número de WhatsApp | `site/js/main.js`, constante `WA` no topo, **e** os links `wa.me/...` no `index.html` |
-| Textos | direto no `site/index.html` |
-| Fotos da galeria, categorias e legendas | array `FOTOS` em `site/js/main.js` |
-| Cores e fontes | bloco `:root` no topo de `site/css/style.css` |
+| Número de WhatsApp | `js/main.js`, constante `WA` no topo, **e** os links `wa.me/...` no `index.html` |
+| Textos | direto no `index.html` |
+| Fotos da galeria, categorias e legendas | array `FOTOS` em `js/main.js` |
+| Cores e fontes | bloco `:root` no topo de `css/style.css` |
 | — se mexer nas cores | rode as duas verificações de contraste antes de publicar (ver `docs/CONTRASTE.md`) |
 | Campos do formulário | `<form id="form">` no HTML + montagem da mensagem em `main.js` |
 

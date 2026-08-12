@@ -4,7 +4,8 @@
 const { execFileSync } = require('child_process');
 const path = require('path');
 
-const IMG = 'C:/Users/kinto/Desktop/kintech/Espaço Clemonth/site/media/img';
+// Relativo ao próprio script: sobrevive a renomear ou mover a pasta do projeto.
+const IMG = path.join(__dirname, '..', 'media', 'img');
 
 /* ---------- utilidades de cor ---------- */
 const srgb = c => { c /= 255; return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); };

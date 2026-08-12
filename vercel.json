@@ -1,0 +1,45 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+
+  "//": [
+    "O site fica na raiz do repositório justamente para a Vercel funcionar sem",
+    "nenhuma configuração no painel: ela procura index.html na raiz e acha.",
+    "O que não deve ir para o ar está listado em .vercelignore."
+  ],
+
+  "headers": [
+    {
+      "//": "Fotos e vídeos quase nunca mudam: cache longo economiza banda e acelera a volta do visitante.",
+      "source": "/media/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "//": "CSS e JS ainda serão ajustados: cache curto para as mudanças aparecerem rápido.",
+      "source": "/(css|js)/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
+      ]
+    },
+    {
+      "//": "O HTML sempre revalida, para texto e telefone novos entrarem no ar na hora.",
+      "source": "/",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" },
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" }
+      ]
+    }
+  ],
+
+  "trailingSlash": false
+}

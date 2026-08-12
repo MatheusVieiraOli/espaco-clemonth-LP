@@ -133,18 +133,25 @@ O perfil está ativo, com publicações em agosto de 2026.
 Três casais gravaram depoimento dentro da casa. Os vídeos estavam no site em resolução
 original; foram identificados pelo nome do casal no HTML da home.
 
-| Casal | Arquivo original | Duração | Entregue como |
+A página **carrega os vídeos direto do servidor do cliente**, pelas URLs da coluna do meio.
+As cópias recomprimidas existem em `media/video/` na máquina, fora do Git, e servem de reserva
+caso os arquivos saiam do ar em espacoclemonth.com.br.
+
+| Casal | URL usada na página (base `espacoclemonth.com.br/wp-content/uploads/2021/11/`) | Duração | Reserva local |
 |---|---|---|---|
 | Vanessa e Leo | `InShot_20211011_160405237.mp4` (218 MB) | 2 min | `depoimento-vanessa-leo.mp4` (9,8 MB) |
 | Luara e Diogo | `InShot_20210813_093838634.mp4` (182 MB) | 1 min 38 s | `depoimento-luara-diogo.mp4` (6,9 MB) |
 | Rebeca e Felipe | `InShot_20210910_174101326.mp4` (398 MB) | 3 min 37 s | `depoimento-rebeca-felipe.mp4` (18,2 MB) |
+
+As capas (`.jpg`) continuam locais e versionadas: são cerca de 40 KB cada e evitam que a seção
+apareça como três retângulos pretos antes de alguém apertar play.
 
 ---
 
 ## 6. Acervo de imagens
 
 **52 fotos** baixadas em resolução original (`assets/img/`, 113 MB) e reprocessadas para web
-(`site/media/img/`, 22 MB em JPG + WebP, largura máxima 1800 px).
+(`media/img/`, 22 MB em JPG + WebP, largura máxima 1800 px).
 
 Origem por página: home (6) · sobre nós (2) · eventos (3) · gastronomia (10) · decoração (31).
 

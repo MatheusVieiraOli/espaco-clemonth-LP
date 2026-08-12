@@ -1,0 +1,13 @@
+# Fica no repositório, mas NÃO vai para o servidor.
+#
+# Com o site na raiz, tudo que está aqui seria publicado junto e ficaria
+# acessível por URL direta. O docs/PITCH-COMERCIAL.md, por exemplo, viraria
+# clemonth.kintechstudio.com.br/docs/PITCH-COMERCIAL.md — e é justamente o
+# documento com o diagnóstico do site atual do cliente.
+
+docs/
+_dev/
+_extracao/
+assets/
+.claude/
+LEIA-ME.md
