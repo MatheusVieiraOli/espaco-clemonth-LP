@@ -70,6 +70,22 @@ deploy novo automaticamente.**
 Se um dia migrar para o domínio do cliente, troque os cinco endereços no `<head>` do
 `index.html`: `canonical`, `og:url`, `og:image` e o `url` e `image` do bloco JSON-LD.
 
+### Cuidado ao editar o `vercel.json`
+
+**Não coloque comentários nele.** JSON não tem sintaxe de comentário, e a Vercel valida o
+arquivo contra um esquema rígido: qualquer propriedade fora da lista dela derruba o deploy
+inteiro com `Invalid request: should NOT have additional property`. O truque comum de usar
+uma chave `"//"` para comentar **não funciona aqui**.
+
+O que o arquivo faz hoje:
+
+| Regra | Efeito |
+|---|---|
+| `/media/(.*)` | cache de 30 dias — fotos quase nunca mudam |
+| `/(css\|js)/(.*)` | cache de 1 hora — ainda em ajuste |
+| `/` | sempre revalida — texto e telefone novos entram no ar na hora |
+| `/(.*)` | cabeçalhos de segurança |
+
 Em outra hospedagem, é um site estático comum: envie o conteúdo da raiz (menos as pastas do
 `.vercelignore`) para a pasta pública do servidor. Todos os caminhos são relativos, então
 funciona também em subpasta.
